@@ -3,7 +3,7 @@ import random
 import string
 
 
-def weight(c):
+def weight(c): #весовой коэф
     if 'A' <= c <= 'Z':
         return ord(c) - ord('A') + 1
     elif '0' <= c <= '9':
@@ -11,7 +11,7 @@ def weight(c):
     return 0
 
 
-def generate_ogr(min_sum, max_sum):
+def generate_ogr(min_sum, max_sum): #работа с блоком XXXX
     block = []
     cur_sum = 0
     while cur_sum < min_sum or cur_sum > max_sum:
@@ -20,7 +20,7 @@ def generate_ogr(min_sum, max_sum):
     return ''.join(block)
 
 
-def generate_password(min_sum=30, max_sum=35):
+def generate_password(min_sum=30, max_sum=35): #работа с блоками XXXX-XXXX-XXXX
     blocks = [generate_ogr(min_sum, max_sum) for _ in range(3)]
     return '-'.join(blocks)
 
@@ -59,6 +59,7 @@ Text_gen.grid(column=0, row=1, padx=10, pady=10)
 
 btn_gen = tk.Button(frame, text='*тык*', command=update_password)
 btn_gen.grid(column=0, row=5, padx=10, pady=10)
+
 
 
 window.mainloop()
