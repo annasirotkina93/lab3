@@ -1,6 +1,7 @@
 import tkinter as tk
 import random
 import string
+from PIL import ImageTk, Image
 
 
 def weight(c): #весовой коэф
@@ -32,17 +33,21 @@ def update_password():
 
 
 window = tk.Tk()
-window.geometry('700x700')
+window.geometry('736x496')
 window.resizable(width=False, height=False)
 
 
-try:
-    bg_img = tk.PhotoImage(file='stranger_things.png')
-    lbl_bg = tk.Label(window, image=bg_img, width=100, height=50)
-    lbl_bg.place(x=0, y=0)
-except:
-    lbl_bg = tk.Label(window, bg='gray', width=100, height=50)
-    lbl_bg.place(x=0, y=0)
+
+# bg_img = tk.PhotoImage(file='stranger_things.jpg')
+# lbl_bg = tk.Label(window, image=bg_img, width=100, height=50)
+# lbl_bg.place(x=0, y=0)
+
+canv = tk.Canvas(window)
+canv.pack(fill=tk.BOTH, expand=True)
+
+img = ImageTk.PhotoImage(Image.open("stranger_things.jpg"))  # PIL solution
+canv.create_image(0, 0, anchor=tk.NW, image=img)
+
 
 
 
